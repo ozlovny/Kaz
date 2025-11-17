@@ -3,7 +3,7 @@ name: Unzip and deploy
 on:
   push:
     paths:
-      - 'mybot.zip'
+      - 'o.zip'
 
 jobs:
   unzip:
