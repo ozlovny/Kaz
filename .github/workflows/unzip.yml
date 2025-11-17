@@ -1,0 +1,23 @@
+name: Unzip and deploy
+
+on:
+  push:
+    paths:
+      - 'mybot.zip'
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Unzip archive
+        run: |
+          unzip mybot.zip -d .
+          rm mybot.zip
+      - name: Commit unpacked files
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add .
+          git commit -m "Unpacked archive"
+          git push
