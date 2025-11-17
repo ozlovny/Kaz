@@ -13,7 +13,7 @@ jobs:
       - name: Unzip archive
         run: |
           unzip o.zip -d .
-          rm mybot.zip
+          rm o.zip
       - name: Commit unpacked files
         run: |
           git config user.name "GitHub Action"
